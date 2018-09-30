@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+{% load static %}
+{% block title %}
+{{ object.name }}
+{% endblock %}
+{% block content %}
+<div class="container">
+    <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+    <div class="row">
+        <div class="col-md-7">
+            <h1>{{ object.name }}</h1>
+                {% if object.photo %}
+                    <p><img src="{{ object.photo.url }}" width="600" height="500" class="img-thumbnail" alt=""></p>
+                {% endif %}
+                <h4>{{ object.description }}</h4>
+                <h4>{{ object.price }} руб.</h4>
+        </div>
+        <div class="color_background_form">
+            <div class="col-md-5">
+                <form method="post" role="form">
+                    <legend>Укажите данные для заказа</legend>
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Заказать</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

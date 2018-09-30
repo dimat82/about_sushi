@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+{% block title %}
+{{ object.title }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+    <h1 class="text-center">{{ object.title }}</h1>
+    <br>
+   <div class="media">
+        <div class="row">
+            <div class="col-md-5">
+        {% if object.photo %}
+            <img src="{{ object.photo.url }}" height="350" width="450">
+        {% endif %}
+        </div>
+        <div class="col-md-7">
+        <div class="media-body">
+            <h4 class="">{{ content_begin }}</h4>
+        </div>
+        </div>
+        </div>
+    <div class="container">
+        <h4>{{ content_end }}</h4>
+    </div>
+{% endblock %}

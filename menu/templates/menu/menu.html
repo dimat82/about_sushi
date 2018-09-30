@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+{% block title %}
+Меню
+{% endblock %}
+{% block content %}
+<div class="container">
+    <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'rolls' %}"><h3 class="text-center">Роллы</h3></a>
+            <a href="{% url 'rolls' %}"><img class="img-rounded" src="/media/роллы.jpg" height="300" width="400" alt=""></a>
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'sushi' %}"><h3 class="text-center">Суши</h3></a>
+            <a href="{% url 'sushi' %}"><img class="img-rounded" src="/media/суши.jpg" height="300" width="400" alt=""></a>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-1">
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'soups' %}"><h3 class="text-center">Супы</h3></a>
+            <a href="{% url 'soups' %}"><img class="img-rounded" src="/media/супы.jpg" height="300" width="400" alt=""></a>
+        </div>
+        <div class="col-md-5">
+            <a href="{% url 'sets' %}"><h3 class="text-center">Сеты</h3></a>
+            <a href="{% url 'sets' %}"><img class="img-rounded" src="/media/сеты.jpg" height="300" width="400" alt=""></a>
+        </div>
+        <div class="col-md-1">
+        </div>
+    </div>
+</div>
+{% endblock %}

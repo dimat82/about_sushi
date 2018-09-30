@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}
+Сушки и Ролки
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <a href="{% url 'menu' %}"><h3 class="text-center">Меню</h3></a>
+            <a href="{% url 'menu' %}"><img src="/media/меню.jpg" height="220" width="350" alt=""></a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'news' %}"><h3 class="text-center">Новости</h3></a>
+            <a href="{% url 'news' %}"><img src="/media/новости.jpg" height="220" width="350" alt=""></a>
+        </div>
+        <div class="col-md-4">
+            <a href="{% url 'articles' %}"><h3 class="text-center">Статьи</h3></a>
+            <a href="{% url 'articles' %}"><img src="/media/статьи.jpg" height="220" width="350" alt=""></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

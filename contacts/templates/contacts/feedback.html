@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% load bootstrap %}
+{% block title %}
+Обратная связь
+{% endblock %}
+{% block content %}
+
+    {% include 'messages.html' %}
+    <div class="container">
+        <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+<div class="color_background_form">
+                <form method="post" role="form">
+                    <legend>Укажите данные для обратной связи</legend>
+                    {% csrf_token %}
+                    {{ form|bootstrap }}
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Отправить</button>
+                    </div>
+                </form>
+        </div>
+    </div>
+{% endblock %}

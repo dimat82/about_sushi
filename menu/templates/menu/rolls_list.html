@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}
+Роллы
+{% endblock %}
+{% block content %}
+    {% include 'messages.html' %}
+<div class="container">
+    <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+    <div class="row">
+        {% for object in object_list %}
+            {% if object.photo %}
+        <div class="col-md-4">
+            <a href="{% url 'roll_detail' pk=object.id %}"><h2 class="text-left">{{ object.name }}</h2></a>
+            <p><a href="{% url 'roll_detail' pk=object.id %}"><img src="{{ object.photo.url }}" width="300" height="200" class="img-thumbnail" alt=""></a></p>
+        </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

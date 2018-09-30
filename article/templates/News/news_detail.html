@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+{% block title %}
+{{ object.title }}
+{% endblock %}
+{% block content %}
+    <div class="container">
+    <a href="javascript:history.go(-1)" class="btn btn-success">Назад</a>
+    <h1 class="text-center">{{ object.title }}</h1>
+    <br>
+    {% if object.photo %}
+        <img width="1100" height="400" src="{{ object.photo.url }}">
+    {% endif %}
+    <br><br><h5>{{ object.content }}</h5>
+    <br>
+    {{ object.posted }}
+    </div>
+{% endblock %}

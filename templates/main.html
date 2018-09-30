@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}Title{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+</head>
+<body>
+    <nav class="nav navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="{% url 'index' %}">Сушки и Ролки</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="nav navbar-nav">
+                <li><a href="{% url 'index' %}" title="Домой"><span style="font-size: 25px" class="glyphicon glyphicon-home"></span></a></li>
+                {% if user.is_authenticated %}
+                    <div class="nav navbar-nav">
+                    <h4 class="text-info text-right">Добро пожаловать, {{ user.get_short_name }}!</h4>
+                        <h4><a href="{% url 'logout' %}">Выйти</a></h4>
+                    </div>
+                {% else %}
+                <form method="post" role="form" class="navbar-form navbar-right">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" placeholder="Логин" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Пароль" class="form-control">
+                    </div>
+                    <a href="{% url 'login' %}" class="btn btn-success">Вход</a>
+                    <a href="{% url 'registration' %}" class="btn btn-success">Регистрация</a>
+                    {% endif %}
+                </form>
+            </div>
+            <div class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Меню"><span style="font-size: 25px" class="glyphicon glyphicon-glass"></span><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'sushi' %}">Суши</a></li>
+                        <li><a href="{% url 'rolls' %}">Роллы</a></li>
+                        <li><a href="{% url 'sets' %}">Сеты</a></li>
+                        <li><a href="{% url 'soups' %}">Супы</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'articles' %}" title="Статьи"><span style="font-size: 25px" class="glyphicon glyphicon-list-alt"></span></a></li>
+                <li><a href="{% url 'feedback' %}" title="Обратная связь"><span style="font-size: 25px" class="glyphicon glyphicon-pencil"></span></a></li>
+                <li><a href="{% url 'contacts' %}" title="Контакты"><span style="font-size: 25px" class="glyphicon glyphicon-envelope"></span></a></li>
+            </ul>
+        </div>
+    </div>
+    </div>
+</nav>
+    <div class="color_background">
+
+        <br>
+        <br>
+        <br>
+     <div class="jumbotron">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+            <h2 class="text-center text-info">Сушки и Ролки, мы предлагаем самые вкусные и необычные блюда японской кухни, приготовленные из свежайших морепродуктов.</h2>
+        </div>
+        </div>
+        </div>
+        </div>
+    {% block content %}
+    {% endblock %}
+    </div>
+    <div class="container text-center">
+        <hr>
+    &copy;Все права защищены 2018
+    </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
