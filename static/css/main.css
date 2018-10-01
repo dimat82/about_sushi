@@ -1,0 +1,14 @@
+.color_background {
+    background-color: ivory;
+}
+.jumbotron {
+    background-image: url("/media/fon3.jpg");
+    background-size: 100% 140%;
+    font-family: "Bitstream Vera Sans Mono", Monaco, "Courier New", Courier, monospace;
+    font-style: italic;
+
+}
+#messages-list {
+    text-align: center;
+    color: darkgreen;
+}
